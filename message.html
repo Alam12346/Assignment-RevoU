@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <link rel="stylesheet" href="message.css">
+</head>
+<body>
+    <header class="header-wrapper">
+    <img class="logo" alt="revou-logo" src="logo.svg" />
+    <div class="menu">
+      <button><a href="index.html" style="text-decoration: none;">Homes</a></button>
+      <button><a href="profile.html" style="text-decoration: none;"> My Profile</a></button>
+      <button><a href="portofolio.html" style="text-decoration: none;"> Portfolio</a></button>
+      <button><a href="message.html" style="text-decoration: none;"> Message Us</a></button>
+    </div>
+  </header>
+    <center>
+<fieldset> <legend style="text-align: center;"><h2> Message Us</h2></legend>
+  <div class="form-section">
+    <form name="message-form" onsubmit="return validateForm()">
+      Nama: <input placeholder="Nama" type="text" name="full-name" />
+      <br />
+
+      Tanggal Lahir:
+      <input type="date" name="birth-date" />
+      <br />
+
+      Jenis Kelamin:
+      <input type="radio" id="male" name="gender" value="Laki-laki" />
+      <label for="male">Laki-laki</label>
+      <input type="radio" id="female" name="gender" value="Perempuan" />
+      <label for="female">Perempuan</label>
+      <br />
+
+      Pesan:
+      <textarea placeholder="Pesan" name="messages"></textarea>
+      <br />
+
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      function validateForm() {
+        var name = document.forms["message-form"]["full-name"].value;
+        var date = document.forms["message-form"]["birth-date"].value;
+        var gender = document.forms["message-form"]["gender"].value;
+        var messages = document.forms["message-form"]["messages"].value;
+
+        if (name == "" || date == "" || gender == "" || messages == "") {
+          alert("Input tidak boleh kosong");
+          return false;
+        }
+
+        document.getElementById("sender-full-name").innerText = name;
+        document.getElementById("sender-birth-date").innerText = date;
+        document.getElementById("sender-gender").innerText = gender;
+        document.getElementById("sender-messages").innerText = messages;
+        return false;
+      }
+    </script>
+
+    <div class="form-output">
+      <p>Nama: <span id="sender-full-name"></span></p>
+      <p>Tanggal Lahir: <span id="sender-birth-date"></span></p>
+      <p>Jenis Kelamin: <span id="sender-gender"></span></p>
+      <p>Pesan: <span id="sender-messages"></span></p>
+    </div>
+  </div>
+</main></fieldset>
+
+ <footer>
+    <section id="footer">
+        <nav class="nav-footer">
+            <p>&copy;  RevoU. All rights reserved 2023.</p>
+        </nav>
+    </section>
+</footer>
+</center>
+</body>
+</html>
